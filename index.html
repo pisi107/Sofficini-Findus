@@ -1,954 +1,2698 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#e30613">
+
 <title>Olly's Sofficini Party 🥟</title>
+
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
+
 html{
     scroll-behavior:smooth;
 }
+
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#fff8ef;
-    color:#222;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#fff8ed;
+    color:#1e1e1e;
+
     overflow-x:hidden;
 }
-/* =========================
+
+
+/* =====================================================
+   VARIABILI
+===================================================== */
+
+:root{
+
+    --rosso:#e30613;
+    --rosso-scuro:#b9000b;
+    --giallo:#ffd200;
+    --giallo-chiaro:#fff1a8;
+    --crema:#fff8ed;
+    --bianco:#ffffff;
+    --nero:#1d1d1d;
+    --verde:#25d366;
+
+}
+
+
+/* =====================================================
    HEADER
-========================= */
+===================================================== */
+
 header{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
+
     z-index:1000;
-    background:rgba(255,255,255,0.94);
-    backdrop-filter:blur(12px);
-    border-bottom:2px solid #f1e0ce;
+
+    background:rgba(255,255,255,.94);
+
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(0,0,0,.08);
+
 }
+
 .nav{
+
     max-width:1100px;
+
     margin:auto;
+
     padding:14px 20px;
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
+
 }
+
 .logo{
-    font-weight:900;
-    font-size:20px;
-    color:#e30613;
+
+    color:var(--rosso);
+
+    font-weight:1000;
+
+    font-size:19px;
+
 }
+
 .logo span{
+
     font-size:25px;
+
 }
-.nav a{
+
+.nav-links{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+.nav-links a{
+
     text-decoration:none;
-    color:#333;
-    margin-left:18px;
-    font-weight:bold;
+
+    color:#222;
+
     font-size:14px;
+
+    font-weight:800;
+
 }
-/* =========================
+
+
+/* =====================================================
    HERO
-========================= */
+===================================================== */
+
 .hero{
+
     min-height:100vh;
-    padding:120px 20px 60px;
+
+    padding:
+        130px 20px
+        70px;
+
     display:flex;
-    align-items:center;
+
     justify-content:center;
+
+    align-items:center;
+
     text-align:center;
-    background:
-        radial-gradient(circle at 20% 20%,#ffe7c7 0,transparent 25%),
-        radial-gradient(circle at 80% 30%,#ffd7dc 0,transparent 25%),
-        linear-gradient(135deg,#fff8ef,#fff);
+
     position:relative;
+
     overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 20%,
+            #ffd9a8 0,
+            transparent 24%
+        ),
+
+        radial-gradient(
+            circle at 90% 30%,
+            #ffd2d7 0,
+            transparent 25%
+        ),
+
+        linear-gradient(
+            145deg,
+            #fff9f0,
+            #fff
+        );
+
 }
+
 .hero-content{
-    max-width:800px;
+
+    max-width:850px;
+
     position:relative;
-    z-index:2;
+
+    z-index:5;
+
 }
-.small-title{
+
+.badge{
+
     display:inline-block;
-    background:#e30613;
+
+    background:var(--rosso);
+
     color:white;
-    padding:8px 18px;
-    border-radius:30px;
-    font-weight:900;
-    margin-bottom:20px;
-    box-shadow:0 8px 20px rgba(227,6,19,.2);
-}
-.hero h1{
-    font-size:clamp(45px,10vw,90px);
-    line-height:.9;
-    font-weight:1000;
-    color:#e30613;
-    text-shadow:4px 5px 0 #ffd100;
-    margin-bottom:25px;
-}
-.hero h1 span{
-    display:block;
-    color:#222;
-    text-shadow:none;
-    font-size:.55em;
-    margin-top:15px;
-}
-.hero-date{
-    font-size:25px;
-    font-weight:900;
-    margin-bottom:10px;
-}
-.hero-sub{
-    font-size:18px;
-    color:#666;
-    margin-bottom:30px;
-}
-.hero-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
-.btn{
-    border:none;
-    padding:15px 25px;
+
+    padding:9px 18px;
+
     border-radius:50px;
+
     font-weight:900;
-    font-size:16px;
-    cursor:pointer;
-    text-decoration:none;
-    display:inline-block;
-    transition:.2s;
+
+    font-size:14px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(227,6,19,.2);
+
 }
-.btn:hover{
-    transform:translateY(-3px);
-}
-.btn-red{
-    background:#e30613;
-    color:white;
-    box-shadow:0 8px 20px rgba(227,6,19,.25);
-}
-.btn-yellow{
-    background:#ffd100;
-    color:#222;
-}
-/* Floating sofficini */
-.floating{
-    position:absolute;
-    font-size:55px;
-    animation:float 4s ease-in-out infinite;
-    opacity:.9;
-}
-.f1{top:15%;left:8%;}
-.f2{top:25%;right:7%;animation-delay:1s;}
-.f3{bottom:15%;left:10%;animation-delay:2s;}
-.f4{bottom:20%;right:12%;animation-delay:.5s;}
-@keyframes float{
-    0%,100%{transform:translateY(0) rotate(-8deg);}
-    50%{transform:translateY(-25px) rotate(8deg);}
-}
-/* =========================
-   SECTIONS
-========================= */
-section{
-    padding:90px 20px;
-}
-.container{
-    max-width:1100px;
-    margin:auto;
-}
-.section-title{
-    text-align:center;
-    margin-bottom:45px;
-}
-.section-title h2{
-    font-size:42px;
+
+.hero h1{
+
+    font-size:
+        clamp(55px,13vw,110px);
+
+    line-height:.85;
+
     font-weight:1000;
+
+    color:var(--rosso);
+
+    letter-spacing:-5px;
+
+    text-shadow:
+        4px 5px 0 var(--giallo);
+
 }
-.section-title p{
-    color:#777;
-    margin-top:10px;
+
+.hero h1 small{
+
+    display:block;
+
+    color:#202020;
+
+    text-shadow:none;
+
+    letter-spacing:-1px;
+
+    font-size:.34em;
+
+    margin-top:20px;
+
 }
-/* =========================
-   WHEEL
-========================= */
-.wheel-section{
-    background:#fff;
+
+.hero-date{
+
+    margin-top:30px;
+
+    font-size:
+        clamp(24px,6vw,38px);
+
+    font-weight:1000;
+
 }
-.wheel-area{
+
+.hero-sub{
+
+    max-width:600px;
+
+    margin:
+        15px auto 0;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    color:#666;
+
+}
+
+.hero-buttons{
+
     display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    margin-top:32px;
+
+}
+
+.btn{
+
+    border:0;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    padding:16px 24px;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:1000;
+
+    transition:.2s;
+
+}
+
+.btn:hover{
+
+    transform:
+        translateY(-3px);
+
+}
+
+.btn-red{
+
+    background:var(--rosso);
+
+    color:white;
+
+    box-shadow:
+        0 12px 25px
+        rgba(227,6,19,.25);
+
+}
+
+.btn-yellow{
+
+    background:var(--giallo);
+
+    color:#111;
+
+}
+
+
+/* =====================================================
+   DECORAZIONI
+===================================================== */
+
+.float{
+
+    position:absolute;
+
+    font-size:55px;
+
+    z-index:1;
+
+    animation:
+        floating 4s
+        ease-in-out
+        infinite;
+
+}
+
+.float.one{
+    left:7%;
+    top:22%;
+}
+
+.float.two{
+    right:7%;
+    top:25%;
+    animation-delay:1s;
+}
+
+.float.three{
+    left:10%;
+    bottom:15%;
+    animation-delay:2s;
+}
+
+.float.four{
+    right:12%;
+    bottom:18%;
+    animation-delay:.5s;
+}
+
+@keyframes floating{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50%{
+        transform:
+            translateY(-25px)
+            rotate(8deg);
+    }
+
+}
+
+
+/* =====================================================
+   SEZIONI
+===================================================== */
+
+section{
+
+    padding:
+        90px 20px;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+
+}
+
+.section-title h2{
+
+    font-size:
+        clamp(32px,6vw,48px);
+
+    font-weight:1000;
+
+}
+
+.section-title p{
+
+    margin-top:10px;
+
+    color:#777;
+
+    font-size:17px;
+
+}
+
+
+/* =====================================================
+   RUOTA
+===================================================== */
+
+.wheel-section{
+
+    background:white;
+
+}
+
+.wheel-area{
+
+    display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
 }
-.wheel-wrapper{
+
+.wheel-container{
+
+    width:
+        min(88vw,430px);
+
+    aspect-ratio:1;
+
     position:relative;
-    width:min(88vw,420px);
-    height:min(88vw,420px);
+
 }
+
 #wheel{
+
     width:100%;
     height:100%;
+
     border-radius:50%;
-    border:12px solid #fff;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
-    transition:transform 4s cubic-bezier(.15,.8,.2,1);
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.18);
+
+    transition:
+        transform 5s
+        cubic-bezier(
+            .12,
+            .8,
+            .2,
+            1
+        );
+
 }
+
 .pointer{
+
     position:absolute;
-    top:-18px;
+
+    z-index:10;
+
+    top:-24px;
+
     left:50%;
-    transform:translateX(-50%);
-    z-index:5;
-    font-size:48px;
+
+    transform:
+        translateX(-50%);
+
+    font-size:52px;
+
+    filter:
+        drop-shadow(
+            0 5px 5px
+            rgba(0,0,0,.2)
+        );
+
 }
-.spin-btn{
+
+.spin{
+
     margin-top:35px;
-    background:#e30613;
+
+    border:0;
+
+    background:var(--rosso);
+
     color:white;
-    border:none;
+
     padding:18px 35px;
+
     border-radius:50px;
-    font-size:19px;
+
+    font-size:18px;
+
     font-weight:1000;
+
     cursor:pointer;
-    box-shadow:0 10px 25px rgba(227,6,19,.3);
+
+    box-shadow:
+        0 12px 30px
+        rgba(227,6,19,.3);
+
 }
-.spin-btn:disabled{
-    opacity:.6;
+
+.spin:disabled{
+
+    opacity:.5;
+
 }
-.result{
-    margin-top:25px;
+
+.wheel-result{
+
     text-align:center;
-    min-height:70px;
+
+    min-height:80px;
+
+    margin-top:25px;
+
 }
-.result h3{
-    font-size:25px;
-    color:#e30613;
-}
-.result p{
-    color:#666;
-}
-/* =========================
-   RSVP
-========================= */
-.rsvp{
-    background:#e30613;
-    color:white;
-}
-.rsvp .section-title p{
-    color:#ffd9dc;
-}
-.form-box{
-    max-width:600px;
-    margin:auto;
-    background:white;
-    color:#222;
-    padding:30px;
-    border-radius:25px;
-    box-shadow:0 20px 50px rgba(0,0,0,.2);
-}
-.input-group{
-    margin-bottom:18px;
-}
-.input-group label{
-    display:block;
-    font-weight:900;
-    margin-bottom:7px;
-}
-.input-group input{
-    width:100%;
-    padding:15px;
-    border:2px solid #eee;
-    border-radius:12px;
-    font-size:16px;
-    outline:none;
-}
-.input-group input:focus{
-    border-color:#e30613;
-}
-.presence{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    margin-top:10px;
-}
-.presence button{
-    padding:17px 10px;
-    border:none;
-    border-radius:14px;
+
+.wheel-result .big{
+
+    font-size:30px;
+
     font-weight:1000;
-    font-size:16px;
-    cursor:pointer;
+
+    color:var(--rosso);
+
 }
-.yes{
-    background:#22c55e;
-    color:white;
-}
-.no{
-    background:#eee;
-    color:#333;
-}
-.confirmation{
-    display:none;
-    margin-top:25px;
-    padding:20px;
-    border-radius:15px;
-    background:#fff4d6;
-    text-align:center;
-}
-.whatsapp{
-    display:none;
-    margin-top:15px;
-    background:#25D366;
-    color:white;
-    width:100%;
-}
-/* =========================
+
+
+/* =====================================================
    GUSTI
-========================= */
+===================================================== */
+
+.flavors-section{
+
+    background:#fff8ed;
+
+}
+
 .flavors{
-    background:#fff8ef;
-}
-.flavor-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px,1fr)
+        );
+
     gap:20px;
+
 }
+
 .flavor{
+
     background:white;
-    padding:25px;
-    border-radius:22px;
+
+    border-radius:25px;
+
+    padding:28px 20px;
+
     text-align:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.07);
+
     transition:.2s;
+
 }
+
 .flavor:hover{
-    transform:translateY(-5px);
+
+    transform:
+        translateY(-6px);
+
 }
+
 .flavor-icon{
+
     font-size:65px;
+
     margin-bottom:15px;
+
 }
+
 .flavor h3{
+
     font-size:20px;
+
     margin-bottom:8px;
+
 }
+
 .flavor p{
+
     color:#777;
-    font-size:14px;
+
+    line-height:1.5;
+
 }
-/* =========================
-   VOTING
-========================= */
-.voting{
-    background:white;
-}
-.vote-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-}
-.vote{
-    border:2px solid #eee;
-    border-radius:18px;
-    padding:20px;
-    text-align:center;
-    cursor:pointer;
-    transition:.2s;
-    background:white;
-}
-.vote:hover{
-    border-color:#ffd100;
-    transform:translateY(-3px);
-}
-.vote.selected{
-    border-color:#e30613;
-    background:#fff3f3;
-}
-.vote-icon{
-    font-size:45px;
-}
-.vote button{
-    margin-top:10px;
-    border:none;
-    background:#ffd100;
-    padding:9px 15px;
-    border-radius:20px;
-    font-weight:900;
-    cursor:pointer;
-}
-.vote-message{
-    text-align:center;
-    margin-top:25px;
-    font-weight:bold;
-    min-height:25px;
-}
-/* =========================
-   INFO
-========================= */
-.info{
-    background:#222;
+
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp{
+
+    background:
+        linear-gradient(
+            145deg,
+            #e30613,
+            #b9000b
+        );
+
     color:white;
+
 }
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+
+.rsvp .section-title p{
+
+    color:#ffd8dc;
+
 }
-.info-card{
-    background:#303030;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
+
+.form{
+
+    max-width:620px;
+
+    margin:auto;
+
+    background:white;
+
+    color:#222;
+
+    border-radius:28px;
+
+    padding:30px;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.25);
+
 }
-.info-card .icon{
-    font-size:40px;
-    margin-bottom:10px;
+
+.form-group{
+
+    margin-bottom:20px;
+
 }
-.info-card h3{
+
+.form-group label{
+
+    display:block;
+
+    font-weight:900;
+
     margin-bottom:8px;
+
 }
-.info-card p{
-    color:#bbb;
+
+.form-group input{
+
+    width:100%;
+
+    border:2px solid #eee;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    font-size:16px;
+
+    outline:none;
+
 }
-/* =========================
-   FOOTER
-========================= */
-footer{
-    background:#111;
-    color:#777;
+
+.form-group input:focus{
+
+    border-color:
+        var(--rosso);
+
+}
+
+.question{
+
+    font-weight:1000;
+
+    margin-bottom:12px;
+
+}
+
+.presence{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:12px;
+
+}
+
+.presence button{
+
+    border:0;
+
+    padding:17px;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    font-weight:1000;
+
+    cursor:pointer;
+
+}
+
+.present{
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+.absent{
+
+    background:#eeeeee;
+
+    color:#333;
+
+}
+
+.confirmation{
+
+    display:none;
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#fff3d0;
+
+    border-radius:18px;
+
     text-align:center;
-    padding:30px 20px;
+
 }
+
+.whatsapp{
+
+    display:none;
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:var(--verde);
+
+    color:white;
+
+}
+
+
+/* =====================================================
+   VOTO
+===================================================== */
+
+.vote-section{
+
+    background:white;
+
+}
+
+.vote-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(170px,1fr)
+        );
+
+    gap:15px;
+
+}
+
+.vote-card{
+
+    border:2px solid #eee;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:22px 15px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.vote-card:hover{
+
+    border-color:
+        var(--giallo);
+
+}
+
+.vote-card.selected{
+
+    border-color:
+        var(--rosso);
+
+    background:#fff4f4;
+
+    transform:
+        translateY(-4px);
+
+}
+
+.vote-card .emoji{
+
+    font-size:48px;
+
+}
+
+.vote-card strong{
+
+    display:block;
+
+    margin-top:8px;
+
+}
+
+.vote-button{
+
+    margin-top:12px;
+
+    border:0;
+
+    background:var(--giallo);
+
+    padding:9px 15px;
+
+    border-radius:20px;
+
+    font-weight:900;
+
+}
+
+.vote-result{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    font-weight:900;
+
+    min-height:25px;
+
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info-section{
+
+    background:#202020;
+
+    color:white;
+
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
+
+    gap:18px;
+
+}
+
+.info-card{
+
+    background:#303030;
+
+    border-radius:22px;
+
+    padding:28px;
+
+    text-align:center;
+
+}
+
+.info-icon{
+
+    font-size:45px;
+
+    margin-bottom:12px;
+
+}
+
+.info-card h3{
+
+    margin-bottom:8px;
+
+}
+
+.info-card p{
+
+    color:#bbb;
+
+    line-height:1.5;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    background:#111;
+
+    color:#777;
+
+    text-align:center;
+
+    padding:35px 20px;
+
+}
+
 footer strong{
-    color:#e30613;
+
+    color:var(--rosso);
+
 }
-/* =========================
-   CONFETTI
-========================= */
-.confetti{
+
+
+/* =====================================================
+   MODALE FINALE
+===================================================== */
+
+.overlay{
+
+    display:none;
+
     position:fixed;
-    top:-20px;
-    width:10px;
-    height:15px;
-    z-index:9999;
-    pointer-events:none;
-    animation:confettiFall 3s linear forwards;
+
+    inset:0;
+
+    z-index:5000;
+
+    background:
+        rgba(0,0,0,.75);
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
 }
-@keyframes confettiFall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
+
+.overlay.active{
+
+    display:flex;
+
+}
+
+.modal{
+
+    width:100%;
+
+    max-width:430px;
+
+    background:white;
+
+    border-radius:28px;
+
+    padding:35px 25px;
+
+    text-align:center;
+
+    animation:
+        popup .3s ease;
+
+}
+
+.modal .emoji{
+
+    font-size:70px;
+
+}
+
+.modal h2{
+
+    color:var(--rosso);
+
+    font-size:30px;
+
+    margin:10px 0;
+
+}
+
+.modal p{
+
+    color:#666;
+
+    line-height:1.5;
+
+}
+
+.modal button{
+
+    margin-top:22px;
+
+    border:0;
+
+    background:var(--rosso);
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:30px;
+
+    font-weight:1000;
+
+}
+
+@keyframes popup{
+
+    from{
+        transform:
+            scale(.7);
         opacity:0;
     }
+
+    to{
+        transform:
+            scale(1);
+        opacity:1;
+    }
+
 }
-/* MOBILE */
-@media(max-width:600px){
-    .nav a{
+
+
+/* =====================================================
+   CORIANDOLI
+===================================================== */
+
+.confetti{
+
+    position:fixed;
+
+    top:-20px;
+
+    width:10px;
+
+    height:16px;
+
+    z-index:9999;
+
+    pointer-events:none;
+
+    animation:
+        fall 3s linear
+        forwards;
+
+}
+
+@keyframes fall{
+
+    to{
+
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:650px){
+
+    .nav-links{
+
         display:none;
+
     }
-    .hero{
-        padding-top:110px;
-    }
+
     section{
-        padding:70px 16px;
+
+        padding:
+            70px 16px;
+
     }
-    .section-title h2{
-        font-size:34px;
+
+    .hero{
+
+        padding-top:
+            120px;
+
     }
-    .form-box{
+
+    .hero h1{
+
+        letter-spacing:
+            -3px;
+
+    }
+
+    .float{
+
+        font-size:
+            38px;
+
+    }
+
+    .form{
+
         padding:22px;
+
     }
+
 }
+
+
+/* =====================================================
+   ACCESSIBILITÀ
+===================================================== */
+
+button{
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+a{
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
 </style>
+
 </head>
+
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
 <div class="nav">
+
 <div class="logo">
+
 🥟 OLLY'S PARTY
+
 </div>
-<div>
-<a href="#ruota">Ruota</a>
-<a href="#conferma">Conferma</a>
-<a href="#gusti">Gusti</a>
+
+<nav class="nav-links">
+
+<a href="#ruota">
+Ruota
+</a>
+
+<a href="#gusti">
+Gusti
+</a>
+
+<a href="#conferma">
+Conferma
+</a>
+
+</nav>
+
 </div>
-</div>
+
 </header>
-<!-- =========================
+
+
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
+
 <section class="hero">
-<div class="floating f1">🥟</div>
-<div class="floating f2">🥟</div>
-<div class="floating f3">🥟</div>
-<div class="floating f4">🥟</div>
+
+
+<div class="float one">
+🥟
+</div>
+
+<div class="float two">
+🥟
+</div>
+
+<div class="float three">
+🥟
+</div>
+
+<div class="float four">
+🥟
+</div>
+
+
 <div class="hero-content">
-<div class="small-title">
+
+
+<div class="badge">
+
 🎉 INVITO UFFICIALE
+
 </div>
+
+
 <h1>
+
 OLLY
-<span>SOFFICINI PARTY 🥟</span>
+
+<small>
+SOFFICINI PARTY 🥟
+</small>
+
 </h1>
+
+
 <div class="hero-date">
+
 📅 3 OTTOBRE
+
 </div>
+
+
 <div class="hero-sub">
-Una serata speciale.<br>
-Una casa. Tanti amici.<br>
-E soprattutto... tantissimi Sofficini.
+
+La serata più importante dell'anno.
+
+<br>
+
+Un compleanno.
+
+Una casa piena di amici.
+
+E una quantità probabilmente esagerata di Sofficini.
+
 </div>
+
+
 <div class="hero-buttons">
-<a href="#conferma" class="btn btn-red">
+
+<a
+href="#conferma"
+class="btn btn-red">
+
 🥟 CONFERMA PRESENZA
+
 </a>
-<a href="#ruota" class="btn btn-yellow">
+
+
+<a
+href="#ruota"
+class="btn btn-yellow">
+
 🎡 GIRA LA RUOTA
+
 </a>
+
 </div>
+
+
 </div>
+
 </section>
-<!-- =========================
+
+
+
+<!-- =====================================================
      RUOTA
-========================= -->
-<section class="wheel-section" id="ruota">
+===================================================== -->
+
+<section
+class="wheel-section"
+id="ruota">
+
 <div class="container">
+
+
 <div class="section-title">
-<h2>🎡 LA RUOTA DEI SOFFICINI</h2>
+
+<h2>
+🎡 LA GRANDE RUOTA
+</h2>
+
 <p>
-Gira la ruota e scopri quale gusto ti aspetta!
+Quale Sofficino toccherà?
 </p>
+
 </div>
+
+
 <div class="wheel-area">
-<div class="wheel-wrapper">
-<div class="pointer">🔻</div>
-<canvas id="wheel" width="600" height="600"></canvas>
+
+
+<div class="wheel-container">
+
+<div class="pointer">
+🔻
 </div>
-<button class="spin-btn" id="spinBtn" onclick="spinWheel()">
-🥟 GIRA LA RUOTA
-</button>
-<div class="result" id="result">
-<h3>Pronto?</h3>
-<p>
-Vediamo quale Sofficino uscirà...
-</p>
+
+<canvas
+id="wheel"
+width="700"
+height="700">
+</canvas>
+
 </div>
-</div>
-</div>
-</section>
-<!-- =========================
-     CONFERMA
-========================= -->
-<section class="rsvp" id="conferma">
-<div class="container">
-<div class="section-title">
-<h2>🎉 CI SARAI?</h2>
-<p>
-Olly deve sapere quanti Sofficini preparare!
-</p>
-</div>
-<div class="form-box">
-<div class="input-group">
-<label>Nome</label>
-<input
-type="text"
-id="nome"
-placeholder="Inserisci il tuo nome"
->
-</div>
-<div class="input-group">
-<label>Cognome</label>
-<input
-type="text"
-id="cognome"
-placeholder="Inserisci il tuo cognome"
->
-</div>
-<label style="font-weight:900;">
-Sarai dei nostri?
-</label>
-<div class="presence">
-<button class="yes" onclick="conferma(true)">
-🥟 CI SARÒ!
-</button>
-<button class="no" onclick="conferma(false)">
-😭 NON CI SARÒ
-</button>
-</div>
-<div class="confirmation" id="confirmation"></div>
+
+
 <button
-class="btn whatsapp"
-id="whatsapp"
-onclick="mandaWhatsApp()">
-📱 INVIA CONFERMA SU WHATSAPP
+class="spin"
+id="spinButton"
+onclick="spinWheel()">
+
+🥟 GIRA LA RUOTA
+
 </button>
+
+
+<div
+class="wheel-result"
+id="wheelResult">
+
+<div class="big">
+Pronto?
 </div>
+
+<div>
+Gira la ruota e scoprilo!
 </div>
+
+</div>
+
+
+</div>
+
+</div>
+
 </section>
-<!-- =========================
+
+
+
+<!-- =====================================================
      GUSTI
-========================= -->
-<section class="flavors" id="gusti">
+===================================================== -->
+
+<section
+class="flavors-section"
+id="gusti">
+
 <div class="container">
+
+
 <div class="section-title">
-<h2>🥟 I GUSTI</h2>
+
+<h2>
+🥟 IL MONDO DEI SOFFICINI
+</h2>
+
 <p>
-La parte più importante della serata.
+Preparati a scegliere il tuo preferito.
 </p>
+
 </div>
-<div class="flavor-grid">
+
+
+<div class="flavors">
+
+
 <div class="flavor">
-<div class="flavor-icon">🍕</div>
-<h3>Pizza</h3>
+
+<div class="flavor-icon">
+🍕
+</div>
+
+<h3>
+Pizza
+</h3>
+
 <p>
 Il grande classico.
 </p>
+
 </div>
+
+
 <div class="flavor">
-<div class="flavor-icon">🧀</div>
-<h3>Formaggio</h3>
-<p>
-Per gli amanti del formaggio.
-</p>
+
+<div class="flavor-icon">
+🥓
 </div>
+
+<h3>
+Prosciutto & Formaggio
+</h3>
+
+<p>
+Una combinazione impossibile da rifiutare.
+</p>
+
+</div>
+
+
 <div class="flavor">
-<div class="flavor-icon">🥓</div>
-<h3>Prosciutto & Formaggio</h3>
-<p>
-Una combinazione leggendaria.
-</p>
+
+<div class="flavor-icon">
+🍅
 </div>
+
+<h3>
+Pomodoro & Mozzarella
+</h3>
+
+<p>
+Semplice, filante e buonissimo.
+</p>
+
+</div>
+
+
 <div class="flavor">
-<div class="flavor-icon">🍅</div>
-<h3>Pomodoro & Mozzarella</h3>
-<p>
-Semplice, ma potentissimo.
-</p>
+
+<div class="flavor-icon">
+🧀
 </div>
+
+<h3>
+Formaggio
+</h3>
+
+<p>
+Per chi non scherza con il formaggio.
+</p>
+
+</div>
+
+
 <div class="flavor">
-<div class="flavor-icon">🍄</div>
-<h3>Funghi</h3>
-<p>
-Per chi vuole qualcosa di diverso.
-</p>
+
+<div class="flavor-icon">
+🍄
 </div>
+
+<h3>
+Funghi
+</h3>
+
+<p>
+Per gli amanti dei sapori più intensi.
+</p>
+
+</div>
+
+
 <div class="flavor">
-<div class="flavor-icon">🥟</div>
-<h3>Il Gusto Misterioso</h3>
+
+<div class="flavor-icon">
+🥟
+</div>
+
+<h3>
+Gusto Misterioso
+</h3>
+
 <p>
-Solo i veri esperti osano.
+Quello che nessuno vuole ammettere di amare.
 </p>
+
 </div>
+
+
 </div>
+
 </div>
+
 </section>
-<!-- =========================
+
+
+
+<!-- =====================================================
+     CONFERMA
+===================================================== -->
+
+<section
+class="rsvp"
+id="conferma">
+
+<div class="container">
+
+
+<div class="section-title">
+
+<h2>
+🎉 CI SARAI?
+</h2>
+
+<p>
+Olly deve sapere quanti Sofficini preparare.
+</p>
+
+</div>
+
+
+<div class="form">
+
+
+<div class="form-group">
+
+<label for="nome">
+Nome
+</label>
+
+<input
+id="nome"
+type="text"
+placeholder="Il tuo nome"
+autocomplete="given-name">
+
+</div>
+
+
+<div class="form-group">
+
+<label for="cognome">
+Cognome
+</label>
+
+<input
+id="cognome"
+type="text"
+placeholder="Il tuo cognome"
+autocomplete="family-name">
+
+</div>
+
+
+<div class="question">
+
+Sarai dei nostri?
+
+</div>
+
+
+<div class="presence">
+
+
+<button
+class="present"
+onclick="confirmPresence(true)">
+
+🥟 CI SARÒ!
+
+</button>
+
+
+<button
+class="absent"
+onclick="confirmPresence(false)">
+
+😭 NON CI SARÒ
+
+</button>
+
+
+</div>
+
+
+<div
+class="confirmation"
+id="confirmation">
+</div>
+
+
+<button
+class="btn whatsapp"
+id="whatsappButton"
+onclick="sendWhatsApp()">
+
+📱 INVIA CONFERMA SU WHATSAPP
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
      VOTAZIONE
-========================= -->
-<section class="voting">
+===================================================== -->
+
+<section
+class="vote-section">
+
 <div class="container">
+
+
 <div class="section-title">
-<h2>🏆 IL TUO PREFERITO</h2>
+
+<h2>
+🏆 IL TUO PREFERITO
+</h2>
+
 <p>
-Scegli il Sofficino che non può assolutamente mancare.
+Quale gusto non può assolutamente mancare?
 </p>
+
 </div>
+
+
 <div class="vote-grid">
-<div class="vote" onclick="vote('Pizza',this)">
-<div class="vote-icon">🍕</div>
-<strong>Pizza</strong>
-<button>VOTA</button>
+
+
+<div
+class="vote-card"
+onclick="vote('Pizza',this)">
+
+<div class="emoji">
+🍕
 </div>
-<div class="vote" onclick="vote('Formaggio',this)">
-<div class="vote-icon">🧀</div>
-<strong>Formaggio</strong>
-<button>VOTA</button>
+
+<strong>
+Pizza
+</strong>
+
+<button class="vote-button">
+VOTA
+</button>
+
 </div>
-<div class="vote" onclick="vote('Prosciutto & Formaggio',this)">
-<div class="vote-icon">🥓</div>
-<strong>Prosciutto & Formaggio</strong>
-<button>VOTA</button>
+
+
+<div
+class="vote-card"
+onclick="vote('Prosciutto & Formaggio',this)">
+
+<div class="emoji">
+🥓
 </div>
-<div class="vote" onclick="vote('Pomodoro & Mozzarella',this)">
-<div class="vote-icon">🍅</div>
-<strong>Pomodoro & Mozzarella</strong>
-<button>VOTA</button>
+
+<strong>
+Prosciutto & Formaggio
+</strong>
+
+<button class="vote-button">
+VOTA
+</button>
+
 </div>
-<div class="vote" onclick="vote('Funghi',this)">
-<div class="vote-icon">🍄</div>
-<strong>Funghi</strong>
-<button>VOTA</button>
+
+
+<div
+class="vote-card"
+onclick="vote('Pomodoro & Mozzarella',this)">
+
+<div class="emoji">
+🍅
 </div>
+
+<strong>
+Pomodoro & Mozzarella
+</strong>
+
+<button class="vote-button">
+VOTA
+</button>
+
 </div>
-<div class="vote-message" id="voteMessage"></div>
+
+
+<div
+class="vote-card"
+onclick="vote('Formaggio',this)">
+
+<div class="emoji">
+🧀
 </div>
+
+<strong>
+Formaggio
+</strong>
+
+<button class="vote-button">
+VOTA
+</button>
+
+</div>
+
+
+<div
+class="vote-card"
+onclick="vote('Funghi',this)">
+
+<div class="emoji">
+🍄
+</div>
+
+<strong>
+Funghi
+</strong>
+
+<button class="vote-button">
+VOTA
+</button>
+
+</div>
+
+
+</div>
+
+
+<div
+class="vote-result"
+id="voteResult">
+
+</div>
+
+
+</div>
+
 </section>
-<!-- =========================
+
+
+
+<!-- =====================================================
      INFO
-========================= -->
-<section class="info">
+===================================================== -->
+
+<section
+class="info-section">
+
 <div class="container">
+
+
 <div class="section-title">
-<h2>📍 INFO PARTY</h2>
+
+<h2>
+📍 INFO PARTY
+</h2>
+
 <p>
 Tutto quello che devi sapere.
 </p>
+
 </div>
+
+
 <div class="info-grid">
+
+
 <div class="info-card">
-<div class="icon">📅</div>
-<h3>QUANDO?</h3>
+
+<div class="info-icon">
+📅
+</div>
+
+<h3>
+QUANDO
+</h3>
+
 <p>
 3 ottobre
 </p>
+
 </div>
+
+
 <div class="info-card">
-<div class="icon">🏠</div>
-<h3>DOVE?</h3>
+
+<div class="info-icon">
+🏠
+</div>
+
+<h3>
+DOVE
+</h3>
+
 <p>
-A casa di Olly 🏠
+A casa di Olly
 </p>
+
 </div>
+
+
 <div class="info-card">
-<div class="icon">🥟</div>
-<h3>DRESS CODE</h3>
+
+<div class="info-icon">
+🥟
+</div>
+
+<h3>
+DRESS CODE
+</h3>
+
 <p>
-Vieni comodo.<br>
-Devi essere pronto a mangiare.
+Comodo.<br>
+Dovrai mangiare.
 </p>
+
 </div>
+
+
 <div class="info-card">
-<div class="icon">🎉</div>
-<h3>MISSIONE</h3>
+
+<div class="info-icon">
+❤️
+</div>
+
+<h3>
+MISSIONE
+</h3>
+
 <p>
 Festeggiare Olly<br>
 e mangiare Sofficini.
 </p>
+
 </div>
+
+
 </div>
+
 </div>
+
 </section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
+
 <p>
-🥟 Realizzato per <strong>Olly</strong> ❤️
+
+🥟
+
+<strong>
+OLLY'S SOFFICINI PARTY
+</strong>
+
+🥟
+
 </p>
-<p style="margin-top:8px;">
-3 OTTOBRE • SOFFICINI • AMICI • FESTA
+
+<p style="margin-top:8px">
+
+3 OTTOBRE • AMICI • COMPLEANNO • SOFFICINI
+
 </p>
+
 </footer>
+
+
+
+<!-- =====================================================
+     MODALE
+===================================================== -->
+
+<div
+class="overlay"
+id="overlay">
+
+<div class="modal">
+
+<div
+class="emoji"
+id="modalEmoji">
+
+🥟
+
+</div>
+
+<h2 id="modalTitle">
+
+</h2>
+
+<p id="modalText">
+
+</p>
+
+<button
+onclick="closeModal()">
+
+CHIUDI
+
+</button>
+
+</div>
+
+</div>
+
+
+
 <script>
-/* =========================
+
+/* =====================================================
    RUOTA
-========================= */
+===================================================== */
+
 const flavors = [
-    "Pizza",
-    "Formaggio",
-    "Prosciutto & Formaggio",
-    "Pomodoro & Mozzarella",
-    "Funghi",
-    "Gusto Misterioso"
-];
-const emojis = [
-    "🍕",
-    "🧀",
-    "🥓",
-    "🍅",
-    "🍄",
-    "🥟"
-];
-const canvas = document.getElementById("wheel");
-const ctx = canvas.getContext("2d");
-const center = canvas.width / 2;
-const radius = 280;
-const segment = (Math.PI * 2) / flavors.length;
-function drawWheel(){
-    for(let i=0;i<flavors.length;i++){
-        const start = i * segment;
-        const end = start + segment;
-        ctx.beginPath();
-        ctx.moveTo(center,center);
-        ctx.arc(
-            center,
-            center,
-            radius,
-            start,
-            end
-        );
-        ctx.closePath();
-        ctx.fillStyle =
-            i % 2 === 0
-            ? "#ffd100"
-            : "#e30613";
-        ctx.fill();
-        ctx.strokeStyle="#fff";
-        ctx.lineWidth=5;
-        ctx.stroke();
-        ctx.save();
-        ctx.translate(center,center);
-        ctx.rotate(start + segment/2);
-        ctx.textAlign="right";
-        ctx.fillStyle =
-            i % 2 === 0
-            ? "#222"
-            : "#fff";
-        ctx.font="bold 25px Arial";
-        ctx.fillText(
-            flavors[i],
-            radius-25,
-            8
-        );
-        ctx.font="32px Arial";
-        ctx.fillText(
-            emojis[i],
-            radius-25,
-            45
-        );
-        ctx.restore();
-    }
+
+{
+    name:"Pizza",
+    emoji:"🍕"
+},
+
+{
+    name:"Prosciutto & Formaggio",
+    emoji:"🥓"
+},
+
+{
+    name:"Pomodoro & Mozzarella",
+    emoji:"🍅"
+},
+
+{
+    name:"Formaggio",
+    emoji:"🧀"
+},
+
+{
+    name:"Funghi",
+    emoji:"🍄"
+},
+
+{
+    name:"Gusto Misterioso",
+    emoji:"🥟"
 }
+
+];
+
+
+const canvas =
+document.getElementById("wheel");
+
+const ctx =
+canvas.getContext("2d");
+
+
+const center =
+canvas.width / 2;
+
+const radius =
+canvas.width / 2 - 10;
+
+
+const slice =
+(Math.PI * 2) /
+flavors.length;
+
+
+function drawWheel(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    flavors.forEach(
+        (flavor,index)=>{
+
+            const start =
+                index * slice;
+
+            const end =
+                start + slice;
+
+
+            ctx.beginPath();
+
+            ctx.moveTo(
+                center,
+                center
+            );
+
+            ctx.arc(
+                center,
+                center,
+                radius,
+                start,
+                end
+            );
+
+            ctx.closePath();
+
+
+            ctx.fillStyle =
+                index % 2 === 0
+                ? "#ffd200"
+                : "#e30613";
+
+            ctx.fill();
+
+
+            ctx.strokeStyle =
+                "#ffffff";
+
+            ctx.lineWidth = 8;
+
+            ctx.stroke();
+
+
+            ctx.save();
+
+
+            ctx.translate(
+                center,
+                center
+            );
+
+
+            ctx.rotate(
+                start + slice / 2
+            );
+
+
+            ctx.textAlign =
+                "right";
+
+
+            ctx.fillStyle =
+                index % 2 === 0
+                ? "#222"
+                : "#fff";
+
+
+            ctx.font =
+                "900 25px Arial";
+
+
+            ctx.fillText(
+                flavor.name,
+                radius - 35,
+                -3
+            );
+
+
+            ctx.font =
+                "38px Arial";
+
+
+            ctx.fillText(
+                flavor.emoji,
+                radius - 35,
+                42
+            );
+
+
+            ctx.restore();
+
+        }
+    );
+
+
+    /* centro */
+
+    ctx.beginPath();
+
+    ctx.arc(
+        center,
+        center,
+        55,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fillStyle =
+        "#ffffff";
+
+    ctx.fill();
+
+    ctx.strokeStyle =
+        "#e30613";
+
+    ctx.lineWidth =
+        8;
+
+    ctx.stroke();
+
+
+    ctx.font =
+        "35px Arial";
+
+    ctx.textAlign =
+        "center";
+
+    ctx.textBaseline =
+        "middle";
+
+    ctx.fillText(
+        "🥟",
+        center,
+        center
+    );
+
+}
+
+
 drawWheel();
-let currentRotation = 0;
+
+
+let rotation = 0;
+
 let spinning = false;
+
+
 function spinWheel(){
-    if(spinning) return;
-    spinning=true;
-    const button=document.getElementById("spinBtn");
-    button.disabled=true;
+
+    if(spinning)
+        return;
+
+
+    spinning = true;
+
+
+    const button =
+        document.getElementById(
+            "spinButton"
+        );
+
+
+    button.disabled = true;
+
+
     const extra =
-        360 * 5 +
-        Math.floor(Math.random()*360);
-    currentRotation += extra;
+        1800 +
+        Math.floor(
+            Math.random() * 360
+        );
+
+
+    rotation += extra;
+
+
     canvas.style.transform =
-        `rotate(${currentRotation}deg)`;
+        `rotate(${rotation}deg)`;
+
+
     setTimeout(()=>{
+
         const normalized =
-            currentRotation % 360;
+            rotation % 360;
+
+
+        const segmentDegrees =
+            360 /
+            flavors.length;
+
+
+        const pointerPosition =
+            (360 -
+            normalized) % 360;
+
+
         const index =
             Math.floor(
-                ((360-normalized+30)%360)
-                / (360/flavors.length)
+                pointerPosition /
+                segmentDegrees
             );
-        const chosen =
+
+
+        const selected =
             flavors[index];
-        document.getElementById("result").innerHTML=`
-            <h3>🎉 È USCITO:</h3>
-            <p style="
-                font-size:30px;
-                font-weight:1000;
-                color:#222;
-                margin-top:8px;
-            ">
-                ${emojis[index]} ${chosen}
-            </p>
+
+
+        document.getElementById(
+            "wheelResult"
+        ).innerHTML = `
+
+            <div
+            class="big">
+
+            ${selected.emoji}
+            ${selected.name}
+
+            </div>
+
+            <div>
+            Questo è il tuo Sofficino! 🥟
+            </div>
+
         `;
-        createConfetti();
-        spinning=false;
-        button.disabled=false;
-    },4200);
-}
-/* =========================
-   RSVP
-========================= */
-let presenza=false;
-function conferma(value){
-    const nome =
-        document.getElementById("nome").value.trim();
-    const cognome =
-        document.getElementById("cognome").value.trim();
-    if(!nome || !cognome){
-        alert(
-            "Inserisci prima nome e cognome 🥟"
+
+
+        showModal(
+            selected.emoji,
+            "È USCITO!",
+            selected.name
         );
-        return;
-    }
-    presenza=value;
-    const box =
-        document.getElementById("confirmation");
-    const whatsapp =
-        document.getElementById("whatsapp");
-    box.style.display="block";
-    whatsapp.style.display="block";
-    if(value){
-        box.innerHTML=`
-            <strong style="font-size:22px;">
-            🎉 PRESENZA CONFERMATA!
-            </strong>
-            <br><br>
-            ${nome} ${cognome},<br>
-            ti aspettiamo il 3 ottobre! 🥟❤️
-        `;
-        createConfetti();
-    }else{
-        box.innerHTML=`
-            <strong style="font-size:22px;">
-            😭 CHE PECCATO!
-            </strong>
-            <br><br>
-            ${nome} ${cognome},<br>
-            i Sofficini sentiranno la tua mancanza.
-        `;
-    }
+
+
+        confetti();
+
+
+        spinning = false;
+
+        button.disabled = false;
+
+    },5000);
+
 }
-function mandaWhatsApp(){
+
+
+
+/* =====================================================
+   PRESENZA
+===================================================== */
+
+let attendance = null;
+
+
+function confirmPresence(value){
+
     const nome =
-        document.getElementById("nome").value.trim();
+        document
+        .getElementById("nome")
+        .value
+        .trim();
+
+
     const cognome =
-        document.getElementById("cognome").value.trim();
+        document
+        .getElementById("cognome")
+        .value
+        .trim();
+
+
+    if(
+        nome === "" ||
+        cognome === ""
+    ){
+
+        alert(
+            "Inserisci nome e cognome 🥟"
+        );
+
+        return;
+
+    }
+
+
+    attendance = value;
+
+
+    const box =
+        document.getElementById(
+            "confirmation"
+        );
+
+
+    const whatsapp =
+        document.getElementById(
+            "whatsappButton"
+        );
+
+
+    box.style.display =
+        "block";
+
+
+    whatsapp.style.display =
+        "block";
+
+
+    if(value){
+
+        box.innerHTML = `
+
+            <strong
+            style="font-size:21px">
+
+            🎉 PRESENZA CONFERMATA!
+
+            </strong>
+
+            <br><br>
+
+            Ciao ${escapeHTML(nome)}!
+
+            <br>
+
+            Ti aspettiamo il
+            <strong>3 ottobre</strong> 🥟❤️
+
+        `;
+
+
+        confetti();
+
+
+    }else{
+
+        box.innerHTML = `
+
+            <strong
+            style="font-size:21px">
+
+            😭 CHE PECCATO!
+
+            </strong>
+
+            <br><br>
+
+            Ci dispiace
+            ${escapeHTML(nome)}!
+
+            <br>
+
+            I Sofficini sentiranno
+            la tua mancanza.
+
+        `;
+
+    }
+
+}
+
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function sendWhatsApp(){
+
+    const nome =
+        document
+        .getElementById("nome")
+        .value
+        .trim();
+
+
+    const cognome =
+        document
+        .getElementById("cognome")
+        .value
+        .trim();
+
+
+    if(!nome || !cognome)
+        return;
+
+
     const stato =
-        presenza
+        attendance
         ? "✅ CI SARÒ!"
         : "❌ NON CI SARÒ";
+
+
     const message =
-`🎉 NUOVA CONFERMA SOFFICINI PARTY! 🥟
+
+`🎉 NUOVA CONFERMA OLLY'S SOFFICINI PARTY! 🥟
+
 👤 ${nome} ${cognome}
+
 ${stato}
+
 📅 3 OTTOBRE
-🥟 OLLY'S SOFFICINI PARTY`;
+🏠 A CASA DI OLLY
+
+🥟 Pronto per i Sofficini!`;
+
+
     const url =
-        "https://wa.me/?text="
-        +encodeURIComponent(message);
-    window.open(url,"_blank");
+        "https://wa.me/?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
 }
-/* =========================
-   VOTAZIONI
-========================= */
-function vote(flavor,element){
+
+
+
+/* =====================================================
+   VOTAZIONE
+===================================================== */
+
+function vote(
+    flavor,
+    element
+){
+
     document
-        .querySelectorAll(".vote")
-        .forEach(v=>v.classList.remove("selected"));
-    element.classList.add("selected");
-    document.getElementById("voteMessage").innerHTML=
-        `🥟 Hai votato <strong>${flavor}</strong>!`;
+    .querySelectorAll(
+        ".vote-card"
+    )
+    .forEach(
+        card =>
+        card.classList.remove(
+            "selected"
+        )
+    );
+
+
+    element.classList.add(
+        "selected"
+    );
+
+
+    document.getElementById(
+        "voteResult"
+    ).innerHTML =
+
+    `🥟 Hai scelto
+    <strong>${flavor}</strong>!`;
+
 }
-/* =========================
+
+
+
+/* =====================================================
+   MODALE
+===================================================== */
+
+function showModal(
+    emoji,
+    title,
+    text
+){
+
+    document.getElementById(
+        "modalEmoji"
+    ).textContent =
+        emoji;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        title;
+
+
+    document.getElementById(
+        "modalText"
+    ).textContent =
+        text;
+
+
+    document.getElementById(
+        "overlay"
+    ).classList.add(
+        "active"
+    );
+
+}
+
+
+function closeModal(){
+
+    document.getElementById(
+        "overlay"
+    ).classList.remove(
+        "active"
+    );
+
+}
+
+
+
+/* =====================================================
    CORIANDOLI
-========================= */
-function createConfetti(){
-    for(let i=0;i<80;i++){
-        const confetti =
-            document.createElement("div");
-        confetti.className="confetti";
-        confetti.style.left =
-            Math.random()*100+"vw";
-        confetti.style.animationDelay =
-            Math.random()*1.5+"s";
-        confetti.style.transform =
-            `rotate(${Math.random()*360}deg)`;
-        document.body.appendChild(confetti);
-        setTimeout(()=>{
-            confetti.remove();
-        },4000);
+===================================================== */
+
+function confetti(){
+
+    const symbols = [
+        "🥟",
+        "🎉",
+        "❤️",
+        "⭐",
+        "✨",
+        "🎂"
+    ];
+
+
+    for(
+        let i = 0;
+        i < 70;
+        i++
+    ){
+
+        const item =
+            document.createElement(
+                "div"
+            );
+
+
+        item.className =
+            "confetti";
+
+
+        item.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+
+        item.style.left =
+            Math.random() * 100 +
+            "vw";
+
+
+        item.style.fontSize =
+            (12 +
+            Math.random() * 16) +
+            "px";
+
+
+        item.style.animationDelay =
+            Math.random() * 1.5 +
+            "s";
+
+
+        document.body.appendChild(
+            item
+        );
+
+
+        setTimeout(
+            ()=>{
+                item.remove();
+            },
+            4000
+        );
+
     }
+
 }
+
+
+
+/* =====================================================
+   SICUREZZA TESTO
+===================================================== */
+
+function escapeHTML(text){
+
+    return text
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   CHIUSURA MODALE
+===================================================== */
+
+document
+.getElementById("overlay")
+.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            event.target === this
+        ){
+
+            closeModal();
+
+        }
+
+    }
+);
+
 </script>
+
+
 </body>
+
 </html>
